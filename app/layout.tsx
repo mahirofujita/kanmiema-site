@@ -22,9 +22,10 @@ const notoSerif = Noto_Serif_JP({
   variable: "--font-noto-serif",
 });
 
-export const metadata: Metadata = {
-  title: "甘味ema",
-  description: "甘味ema",
+export const metadata = {
+  title: "甘味ema｜茨城県水戸市の甘味処",
+  description: "奥久慈茶と和の甘味を楽しめる甘味処。",
+};
 };
 
 export default function RootLayout({
