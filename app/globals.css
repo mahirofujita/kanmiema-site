@@ -67,3 +67,12 @@ body {
 html {
   font-family: "ten-mincho-text", serif;
 }
+.ten-mincho {
+  font-family: "ten-mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  
+  color: #4a3527;
+}

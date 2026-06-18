@@ -135,7 +135,7 @@ export default function Home() {
         About
       </p>
 
-      <h2 className="text-5xl md:text-7xl mb-10 ten-mincho leading-tight">
+      <h2 className="text-3xl md:text-6xl mb-10 ten-mincho leading-tight">
   和と洋の余韻。
       </h2>
 <h3 className="text-xl md:text-2xl mb-12 text-[#8c735e] tracking-[0.15em]">
@@ -143,7 +143,7 @@ export default function Home() {
 </h3>
       
 
-      <p className="leading-9 text-lg">
+      <p className="leading-8 text-lg">
         老若男女問わず、
         どんな年代の人も心穏やかに過ごせる甘味処。
         <br /><br />
@@ -195,9 +195,8 @@ export default function Home() {
         </h2>
 
         <p className="mt-8 text-sm leading-8 opacity-70">
-          甘味emaの定番甘味と、
-          奥久慈の食材を使ったお食事、
-          季節のお飲み物をご用意しています。
+          甘味emaの季節の甘味と、
+          奥久慈の食材を使ったお食事をご用意しています。
         </p>
 
       </div>
@@ -242,7 +241,7 @@ export default function Home() {
     <p className="leading-8 opacity-70">
       蕎麦茶で仕立てた寒天の上に、
       粒あん、白花豆の餡、黒豆、
-      赤えんどう豆、杏子を添えています。
+      赤えんどう豆、黒胡麻アイス、杏子を添えています。
       自家製黒蜜をかけてお召し上がりください。
     </p>
 
@@ -534,7 +533,7 @@ export default function Home() {
             <p>
               〒310-0053
               <br />
-              茨城県水戸市末広町3-3-35
+              茨城県水戸市末広町3-2-35
             </p>
           </div>
 
@@ -554,7 +553,7 @@ export default function Home() {
             </p>
 
             <p>
-              水曜日
+              水曜日（不定休あり）
             </p>
           </div>
 
