@@ -11,16 +11,9 @@ export default function Home() {
     "/甘味エマ６.png",
   ];
 
-  const [currentImage, setCurrentImage] = useState(0);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, []);
+const [currentImage, setCurrentImage] = useState(0);
+const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <>
@@ -135,15 +128,16 @@ export default function Home() {
         About
       </p>
 
-      <h2 className="text-3xl md:text-6xl mb-10 ten-mincho leading-tight">
+      <h2 className="shippori text-4xl md:text-6xl font-medium leading-[1.4] tracking-[0.03em] mb-8">
   和と洋の余韻。
-      </h2>
+</h2>
+ 
 <h3 className="text-xl md:text-2xl mb-12 text-[#8c735e] tracking-[0.15em]">
   Japanese Sweets & Tea
 </h3>
       
 
-      <p className="leading-8 text-lg">
+      <p className="shippori leading-8 text-lg">
         老若男女問わず、
         どんな年代の人も心穏やかに過ごせる甘味処。
         <br /><br />
@@ -190,7 +184,7 @@ export default function Home() {
           — Menu
         </p>
 
-        <h2 className="text-5xl md:text-5xl ten-mincho leading-none">
+        <h2 className="text-5xl md:text-5xl shippori leading-none">
           お品書き
         </h2>
 
@@ -264,6 +258,50 @@ export default function Home() {
       <span>¥920</span>
     </div>
 
+    {/* 白花豆のモンブラン */}
+
+<div className="grid md:grid-cols-2 gap-12 items-center border-b pb-10 pt-12">
+
+  <div>
+
+
+<img
+  src="/白花豆.jpg"
+  alt="白花豆のモンブラン"
+  className="w-full h-[450px] object-cover"
+/>
+
+<p className="mt-3 text-xs tracking-[0.25em] uppercase opacity-60">
+  SHIROHANAMAME MONT BLANC · SIGNATURE SWEET
+</p>
+
+
+  </div>
+
+  <div>
+
+
+<div className="flex justify-between mb-4">
+
+  <h3 className="text-4xl shippori-mincho">
+    白花豆のモンブラン
+  </h3>
+
+  <span>¥990</span>
+
+</div>
+
+<p className="leading-8 opacity-70">
+ 白花豆とメレンゲで冬のモンブランを表現しました。
+ 優しく上品な甘さの白花豆を施肥味わっていただきたいです。
+</p>
+
+
+  </div>
+
+</div>
+
+
     <div className="flex justify-between border-b pb-4">
       <span>ぜんざい</span>
       <span>¥580</span>
@@ -272,11 +310,6 @@ export default function Home() {
     <div className="flex justify-between border-b pb-4">
       <span>蕎麦ぜんざい</span>
       <span>¥1100</span>
-    </div>
-
-    <div className="flex justify-between border-b pb-4">
-      <span>白花豆のモンブラン</span>
-      <span>¥990</span>
     </div>
 
     <div className="flex justify-between border-b pb-4">
@@ -358,27 +391,50 @@ export default function Home() {
   </div>
 
   {/* 蕎麦がき */}
-  <div className="pt-12 pb-8 border-b border-[#4a3527]/20">
 
-    <div className="flex justify-between items-end mb-4">
+<div className="grid md:grid-cols-2 gap-16 items-center pt-16">
 
-      <h3 className="text-3xl ten-mincho">
-        蕎麦がき
-      </h3>
+  <div>
 
-      <span>
-        ¥1200
-      </span>
 
-    </div>
+<img
+  src="/そばがき.jpg"
+  alt="蕎麦がき"
+  className="w-full h-[450px] object-cover"
+/>
 
-    <p className="leading-8 opacity-70">
-      ご注文をいただいてから蕎麦の実を挽いてお作りします。
-    </p>
+<p className="mt-3 text-xs tracking-[0.25em] uppercase opacity-60">
+  SOBA GAKI · FRESHLY GROUND BUCKWHEAT
+</p>
+
+
+  </div>
+
+  <div>
+
+
+<div className="flex justify-between items-end mb-6">
+
+  <h3 className="text-5xl shippori-mincho leading-none">
+    蕎麦がき
+  </h3>
+
+  <span className="text-lg">
+    ¥1200
+  </span>
+
+</div>
+
+<p className="leading-9 opacity-70">
+  ご注文をいただいてから蕎麦の実を挽いてお作りします。
+  蕎麦本来の香りと風味をお楽しみください。
+</p>
+</div>
 
   </div>
 
 </div>
+
 {/* お飲み物
  */}
 <div className="mb-24">
@@ -482,147 +538,270 @@ export default function Home() {
 
 </section>
 
-  {/* GALLERY */}
+{/* GALLERY */}
+
 <section
   id="gallery"
   className="min-h-screen bg-[#643c22] flex items-center justify-center"
 >
-  <div className="text-center">
+  <div className="text-center px-6">
 
-    <p className="text-[12px] tracking-[0.3em] uppercase text-[#f5f1eb]/60 mb-8 fade-up">
-      Gallery
-    </p>
+```
+<p className="text-[12px] tracking-[0.3em] uppercase text-[#f5f1eb]/60 mb-8">
+  Gallery
+</p>
 
-    <img
-      src={images[currentImage]}
-      alt="gallery"
-      className="className=w-[90vw] md:w-[900px] mx-auto transition-opacity duration-1000"
+<div className="relative w-full max-w-[900px] mx-auto">
+
+  <img
+  src={images[currentImage]}
+  alt="gallery"
+  className="
+    w-full
+    max-w-[900px]
+    aspect-[4/3]
+    object-cover
+    mx-auto
+  "
+/>
+
+  {/* 左矢印 */}
+  <button
+    onClick={() =>
+      setCurrentImage(
+        (currentImage - 1 + images.length) %
+        images.length
+      )
+    }
+    className="
+absolute
+left-2
+top-1/2
+-translate-y-1/2
+text-white
+text-3xl
+md:text-5xl
+z-10
+"
+  >
+    ‹
+  </button>
+
+  {/* 右矢印 */}
+  <button
+    onClick={() =>
+      setCurrentImage(
+        (currentImage + 1) %
+        images.length
+      )
+    }
+    className="
+absolute
+right-2
+top-1/2
+-translate-y-1/2
+text-white
+text-3xl
+md:text-5xl
+z-10
+"  >
+    ›
+  </button>
+
+</div>
+
+{/* ドットナビ */}
+<div className="flex justify-center gap-3 mt-8">
+
+  {images.map((_, index) => (
+    <button
+      key={index}
+      onClick={() => setCurrentImage(index)}
+      className={`w-3 h-3 rounded-full transition-all ${
+        currentImage === index
+          ? "bg-white scale-110"
+          : "bg-white/30"
+      }`}
     />
+  ))}
+
+</div>
+```
 
   </div>
 </section>
 
 
 {/* ACCESS */}
+
 <section
   id="access"
   className="bg-[#f5f1eb] text-[#4a3527] py-32 md:py-40"
 >
   <div className="max-w-7xl mx-auto px-8 md:px-20">
 
-    <div className="grid md:grid-cols-2 gap-20 items-center">
 
-      {/* LEFT */}
+<div className="grid md:grid-cols-2 gap-20 items-start">
+
+  {/* LEFT */}
+  <div>
+
+    <p className="tracking-[0.3em] text-xs uppercase opacity-60 mb-8">
+      Access
+    </p>
+
+    <h2 className="text-5xl md:text-7xl shippori-mincho mb-12">
+      甘味ema
+    </h2>
+
+    <div className="space-y-8 leading-8">
+
       <div>
-
-        <p className="tracking-[0.3em] text-xs uppercase opacity-60 mb-8">
-          Access
+        <p className="text-xs tracking-[0.2em] uppercase opacity-50 mb-2">
+          Address
         </p>
 
-        <h2 className="text-5xl md:text-7xl ten-mincho mb-12">
-          甘味ema
-        </h2>
-
-        <div className="space-y-8 leading-8">
-
-          <div>
-            <p className="text-xs tracking-[0.2em] uppercase opacity-50 mb-2">
-              Address
-            </p>
-
-            <p>
-              〒310-0053
-              <br />
-              茨城県水戸市末広町3-2-35
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs tracking-[0.2em] uppercase opacity-50 mb-2">
-              Open
-            </p>
-
-            <p>
-              11:00 - 17:00
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs tracking-[0.2em] uppercase opacity-50 mb-2">
-              Closed
-            </p>
-
-            <p>
-              水曜日（不定休あり）
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs tracking-[0.2em] uppercase opacity-50 mb-2">
-              Tel
-            </p>
-
-            <p>
-              029-246-5199
-            </p>
-          </div>
-
-        </div>
-
+        <p>
+          〒310-0053
+          <br />
+          茨城県水戸市末広町3-2-35
+        </p>
       </div>
 
-      {/* RIGHT */}
       <div>
-
-        <img
-          src="/甘味エマ外観.png"
-          alt="甘味ema 外観"
-          className="w-full h-[600px] object-cover"
-        />
-
-        <p className="mt-4 text-xs tracking-[0.25em] uppercase opacity-60">
-          KANMI EMA · MITO IBARAKI
+        <p className="text-xs tracking-[0.2em] uppercase opacity-50 mb-2">
+          Open
         </p>
 
+        <p>
+          11:00 - 17:00
+        </p>
+      </div>
+
+      <div>
+        <p className="text-xs tracking-[0.2em] uppercase opacity-50 mb-2">
+          Closed
+        </p>
+
+        <p>
+          水曜日（不定休あり）
+        </p>
+      </div>
+
+      <div>
+        <p className="text-xs tracking-[0.2em] uppercase opacity-50 mb-2">
+          Tel
+        </p>
+
+        <p>
+          029-246-5199
+        </p>
       </div>
 
     </div>
 
   </div>
-</section>
-{/* INSTAGRAM */}
-<section
-  id="instagram"
-  className="min-h-screen bg-[#643c22] flex items-center justify-center px-10"
->
 
-  <div className="text-center text-[#f5f1eb]">
+  {/* RIGHT */}
+  <div>
 
-    <p className="text-[12px] tracking-[0.3em] uppercase opacity-60 mb-8">
-      Instagram
+    {/* 外観写真 */}
+    <img
+      src="/甘味エマ外観.png"
+      alt="甘味ema 外観"
+      className="w-full h-[450px] object-cover rounded-lg"
+    />
+
+    <p className="mt-4 text-xs tracking-[0.25em] uppercase opacity-60 mb-8">
+      KANMI EMA · MITO IBARAKI
     </p>
 
-    <h2 className="text-4xl mb-8">
-      @kanmiema
-    </h2>
+    {/* Google Map */}
+    <div className="overflow-hidden rounded-lg shadow-md">
 
-    <p className="leading-8 opacity-80 mb-12">
-      季節の甘味や店内の風景、
-      日々のお知らせを発信しています。
-    </p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.7346417646704!2d140.4510553760912!3d36.391417390635524!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022250067ec8ded%3A0x13867e93d7b78164!2z55SY5ZGzIGVtYQ!5e0!3m2!1sja!2sjp!4v1781871062044!5m2!1sja!2sjp"
+        width="100%"
+        height="350"
+        style={{ border: 0 }}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
 
-    <a
-     href="https://www.instagram.com/kanmiema/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="border border-[#f5f1eb]/40 px-10 py-4 tracking-[0.2em] hover:bg-[#f5f1eb] hover:text-[#643c22] transition duration-700"
-    >
-      VIEW INSTAGRAM
-    </a>
+    </div>
 
   </div>
 
+</div>
+
+
+  </div>
 </section>
+
+{/* INSTAGRAM */}
+
+<section
+  id="instagram"
+  className="bg-[#f5f1eb] text-[#4a3527] py-32 md:py-40"
+>
+  <div className="max-w-6xl mx-auto px-8">
+
+```
+<p className="text-xs tracking-[0.3em] uppercase opacity-60 mb-6 text-center">
+  Instagram
+</p>
+
+<h2 className="shippori-mincho text-5xl md:text-7xl text-center mb-12">
+  @kanmiema
+</h2>
+
+<p className="text-center leading-8 opacity-70 mb-16">
+  季節の甘味や店内の風景、
+  日々のお知らせを発信しています。
+</p>
+
+{/* Instagram Image Grid */}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+
+  <img
+    src="/ブランマンジェ.jpg"
+    alt="Instagram"
+    className="w-full h-[350px] object-cover"
+  />
+
+  <img
+    src="/甘味エマ写真７.png"
+    alt="Instagram"
+    className="w-full h-[350px] object-cover"
+  />
+
+  <img
+    src="/チャイ.jpg"
+    alt="Instagram"
+    className="w-full h-[350px] object-cover"
+  />
+
+</div>
+
+<div className="text-center">
+
+  <a
+    href="https://www.instagram.com/kanmiema/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block border border-[#4a3527]/20 px-10 py-4 tracking-[0.15em] hover:bg-[#4a3527] hover:text-white transition duration-500"
+  >
+    VIEW INSTAGRAM
+  </a>
+
+</div>
+```
+
+  </div>
+</section>
+
+
+
 
     </>
   );

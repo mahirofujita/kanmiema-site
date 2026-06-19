@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
+
 @import "tailwindcss";
 
 :root {
@@ -21,8 +23,8 @@
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-noto-serif);
+  color: #4a3527;
+  font-family: "Shippori Mincho B1", serif;
 }
 
 @keyframes fadeUp {
@@ -58,21 +60,17 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
 body {
-  font-family: ten-mincho-text, serif;
+  color: #4a3527;
+  font-family: var(--font-noto-serif);
 }
-.ten-mincho {
-  font-family: "ten-mincho-text", serif;
-}
-html {
-  font-family: "ten-mincho-text", serif;
-}
+
 .ten-mincho {
   font-family: "ten-mincho", serif;
   font-weight: 400;
   font-style: normal;
 }
-body {
-  
-  color: #4a3527;
+.shippori {
+  font-family: "Shippori Mincho B1", serif;
 }
