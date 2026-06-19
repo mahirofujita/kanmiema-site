@@ -266,7 +266,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
 
 
 <img
-  src="/白花豆.jpg"
+  src="/白花豆.JPG"
   alt="白花豆のモンブラン"
   className="w-full h-[450px] object-cover"
 />
@@ -398,7 +398,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
 
 
 <img
-  src="/そばがき.jpg"
+  src="/そばがき.JPG"
   alt="蕎麦がき"
   className="w-full h-[450px] object-cover"
 />
@@ -546,7 +546,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
 >
   <div className="text-center px-6">
 
-```
+
 <p className="text-[12px] tracking-[0.3em] uppercase text-[#f5f1eb]/60 mb-8">
   Gallery
 </p>
@@ -746,7 +746,7 @@ z-10
 >
   <div className="max-w-6xl mx-auto px-8">
 
-```
+
 <p className="text-xs tracking-[0.3em] uppercase opacity-60 mb-6 text-center">
   Instagram
 </p>
@@ -795,7 +795,7 @@ z-10
   </a>
 
 </div>
-```
+
 
   </div>
 </section>
