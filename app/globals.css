@@ -74,3 +74,41 @@ body {
 .shippori {
   font-family: "Shippori Mincho B1", serif;
 }
+@keyframes heroFade {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes heroFade {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-
   const images = [
     "/甘味エマ写真1.png",
     "/甘味エマ写真５.png",
@@ -11,46 +10,69 @@ export default function Home() {
     "/甘味エマ６.png",
   ];
 
+  const [heroImage, setHeroImage] = useState(0);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  
 
-const [currentImage, setCurrentImage] = useState(0);
-const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => {
+  const timer = setInterval(() => {
+    setHeroImage((prev) => (prev + 1) % images.length);
+  }, 6000);
+
+  return () => clearInterval(timer);
+}, []);
+
+
 
   return (
     <>
-
 {/* TOP */}
-<main className="relative h-screen">
+<main className="relative h-screen overflow-hidden">
 
-  <img
-    src="/甘味エマ写真1.png"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
+  {/* Background Image */}
+<div className="absolute inset-0 overflow-hidden">
 
-  <div className="absolute inset-0 bg-black/30" />
+  {images.map((image, index) => (
+    <img
+      key={index}
+      src={image}
+      alt=""
+      className={`
+        absolute
+        inset-0
+        w-full
+        h-full
+        object-cover
+        transition-all
+        duration-[2500ms]
+        ease-in-out
+        ${
+          heroImage === index
+            ? "opacity-100 scale-100"
+            : "opacity-0 scale-110"
+        }
+      `}
+    />
+  ))}
 
-  {/* NAV */}
-  {/* TOP */}
-<main className="relative h-screen">
+</div>
 
-  <img
-    src="/甘味エマ写真1.png"
-    alt="甘味ema"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
 
-  <div className="absolute inset-0 bg-black/30" />
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-[#4a3527]/30" />
 
   {/* NAV */}
   <nav className="fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-md">
 
     <div className="h-16 flex items-center justify-between px-6">
 
-      <p className="text-brown tracking-[0.2em]">
+      <p className="text-white tracking-[0.15em] text-sm md:text-base">
         甘味ema
       </p>
 
-      {/* PC */}
-      <div className="hidden md:flex gap-10 text-[11px] uppercase text-brown tracking-[0.3em]">
+      {/* PC MENU */}
+      <div className="hidden md:flex gap-10 text-[11px] uppercase text-white tracking-[0.3em]">
         <a href="#about">About</a>
         <a href="#menu">Menu</a>
         <a href="#gallery">Gallery</a>
@@ -58,21 +80,21 @@ const [mobileOpen, setMobileOpen] = useState(false);
         <a href="#instagram">Instagram</a>
       </div>
 
-      {/* スマホ */}
+      {/* MOBILE BUTTON */}
       <button
         className="md:hidden flex flex-col gap-1"
         onClick={() => setMobileOpen(!mobileOpen)}
       >
-       <span className="w-5 h-[2px] bg-black"></span>
-<span className="w-5 h-[2px] bg-black"></span>
-<span className="w-5 h-[2px] bg-black"></span>
+        <span className="w-5 h-[2px] bg-white"></span>
+        <span className="w-5 h-[2px] bg-white"></span>
+        <span className="w-5 h-[2px] bg-white"></span>
       </button>
 
     </div>
 
   </nav>
 
-  {/* Mobile Menu */}
+  {/* MOBILE MENU */}
   {mobileOpen && (
     <div className="fixed top-16 left-0 right-0 z-40 bg-white text-[#643c22]">
 
@@ -89,30 +111,52 @@ const [mobileOpen, setMobileOpen] = useState(false);
     </div>
   )}
 
-  {/* LOGO */}
-  <div className="absolute inset-0 flex flex-col items-center justify-center">
+  
+{/* LOGO */}
+<div className="absolute inset-0 flex flex-col items-center justify-center">
 
-    <img
-      src="/kanmiema logo.svg"
-      alt="甘味ema"
-      className="w-[260px] md:w-[360px]"
-    />
+  <img
+    src="/kanmiema logo.svg"
+    alt="甘味ema"
+    className="w-[260px] md:w-[420px]"
+  />
 
-    <p className="mt-8 text-white tracking-[0.5em] text-xs md:text-sm">
-     
-    </p>
+  <p className="mt-6 text-white/80 tracking-[0.35em] text-xs">
+    JAPANESE SWEETS & TEA
+  </p>
 
-    <p className="mt-4 text-white/80 text-lg md:text-2xl">
-     
-    
-    </p>
+</div>
 
-  </div>
+{/* SCROLL */}
+<a
+  href="#about"
+  className="
+    absolute
+    bottom-10
+    left-1/2
+    -translate-x-1/2
+    z-20
+    flex
+    flex-col
+    items-center
+    text-white
+    hover:opacity-70
+    transition
+  "
+>
 
+  <span className="text-[10px] tracking-[0.4em] mb-2">
+    SCROLL
+  </span>
+
+  <span className="animate-bounce text-2xl">
+    ↓
+  </span>
+
+</a>
 </main>
 
 
-</main>
 
   {/* ABOUT */}
   <section
@@ -128,7 +172,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
         About
       </p>
 
-      <h2 className="shippori text-4xl md:text-6xl font-medium leading-[1.4] tracking-[0.03em] mb-8">
+      <h2 className="shippori text-4xl md:text-5xl font-medium leading-[1.4] tracking-[0.03em] mb-8">
   和と洋の余韻。
 </h2>
  
@@ -156,7 +200,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
       <img
         src="/tea.JPG"
         alt="甘味ema"
-        className="w-full object-cover　shadow-xl"
+        className="w-full object-cover shadow-xl"
       />
       <p className="mt-4 text-xs tracking-[0.25em] uppercase text-[#8c735e]">
   OKUKUJI TEA · IBARAKI
@@ -166,6 +210,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
     </div>
 
   </div>
+ 
 </section>
 
  {/* MENU */}
@@ -184,9 +229,9 @@ const [mobileOpen, setMobileOpen] = useState(false);
           — Menu
         </p>
 
-        <h2 className="text-5xl md:text-5xl shippori leading-none">
-          お品書き
-        </h2>
+       <h2 className="text-4xl md:text-5xl shippori leading-none">
+  お品書き
+</h2>
 
         <p className="mt-8 text-sm leading-8 opacity-70">
           甘味emaの季節の甘味と、
@@ -208,13 +253,13 @@ const [mobileOpen, setMobileOpen] = useState(false);
 
   <div className="space-y-6">
 
-    <div className="grid md:grid-cols-2 gap-12 items-center border-b pb-10">
+    <div className="grid lg:grid-cols-2 gap-12 items-center border-b pb-10">
 
   <div>
     <img
       src="/甘味エマ写真４.png"
       alt="黒胡麻あんみつ"
-      className="w-full h-[450px] object-cover"
+      className="w-full aspect-[4/5] object-cover"
     />
 
     <p className="mt-3 text-xs tracking-[0.25em] uppercase opacity-60">
@@ -225,7 +270,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
   <div>
 
     <div className="flex justify-between mb-4">
-      <h3 className="text-4xl ten-mincho">
+      <h3 className="text-3xl ten-mincho">
         黒胡麻あんみつ
       </h3>
 
@@ -260,7 +305,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
 
     {/* 白花豆のモンブラン */}
 
-<div className="grid md:grid-cols-2 gap-12 items-center border-b pb-10 pt-12">
+<div className="grid lg:grid-cols-2 gap-12 items-center border-b pb-10 pt-12">
 
   <div>
 
@@ -268,7 +313,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
 <img
   src="/白花豆.JPG"
   alt="白花豆のモンブラン"
-  className="w-full h-[450px] object-cover"
+  className="w-full aspect-[4/5] object-cover"
 />
 
 <p className="mt-3 text-xs tracking-[0.25em] uppercase opacity-60">
@@ -283,7 +328,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
 
 <div className="flex justify-between mb-4">
 
-  <h3 className="text-4xl shippori-mincho">
+  <h3 className="text-3xl shippori-mincho">
     白花豆のモンブラン
   </h3>
 
@@ -350,13 +395,13 @@ const [mobileOpen, setMobileOpen] = useState(false);
   </p>
 
   {/* 親子丼 */}
-  <div className="grid md:grid-cols-2 gap-16 items-center pb-16 border-b border-[#4a3527]/20">
+  <div className="grid lg:grid-cols-2 gap-16 items-center pb-16 border-b border-[#4a3527]/20">
 
     <div>
 
       <div className="flex justify-between items-end mb-6">
 
-        <h3 className="text-5xl ten-mincho leading-none">
+        <h3 className="text-3xl ten-mincho leading-none">
           親子丼御膳
         </h3>
 
@@ -379,7 +424,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
       <img
         src="/エマ写真２.png"
         alt="親子丼御膳"
-        className="w-full h-[500px] object-cover"
+        className="w-full aspect-[4/5] object-cover"
       />
 
       <p className="mt-3 text-xs tracking-[0.25em] uppercase opacity-60">
@@ -392,7 +437,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
 
   {/* 蕎麦がき */}
 
-<div className="grid md:grid-cols-2 gap-16 items-center pt-16">
+<div className="grid lg:grid-cols-2 gap-16 items-center pt-16">
 
   <div>
 
@@ -400,7 +445,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
 <img
   src="/そばがき.JPG"
   alt="蕎麦がき"
-  className="w-full h-[450px] object-cover"
+  className="w-full aspect-[4/5] object-cover"
 />
 
 <p className="mt-3 text-xs tracking-[0.25em] uppercase opacity-60">
@@ -415,7 +460,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
 
 <div className="flex justify-between items-end mb-6">
 
-  <h3 className="text-5xl shippori-mincho leading-none">
+  <h3 className="text-3xl shippori-mincho leading-none">
     蕎麦がき
   </h3>
 
@@ -442,7 +487,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
   <p className="tracking-[0.25em] text-xs uppercase opacity-60 mb-10">
     お飲み物
   </p>
-<div className="grid md:grid-cols-2 gap-x-16 gap-y-5">
+<div className="grid lg:grid-cols-2 gap-x-16 gap-y-5">
 
   <div className="flex justify-between border-b border-[#4a3527]/10 pb-3">
     <span>深蒸し茶</span>
@@ -610,23 +655,7 @@ z-10
 
 </div>
 
-{/* ドットナビ */}
-<div className="flex justify-center gap-3 mt-8">
 
-  {images.map((_, index) => (
-    <button
-      key={index}
-      onClick={() => setCurrentImage(index)}
-      className={`w-3 h-3 rounded-full transition-all ${
-        currentImage === index
-          ? "bg-white scale-110"
-          : "bg-white/30"
-      }`}
-    />
-  ))}
-
-</div>
-```
 
   </div>
 </section>
@@ -650,7 +679,7 @@ z-10
       Access
     </p>
 
-    <h2 className="text-5xl md:text-7xl shippori-mincho mb-12">
+    <h2 className="text-4xl md:text-5xl shippori-mincho mb-12">
       甘味ema
     </h2>
 
@@ -742,8 +771,9 @@ z-10
 
 <section
   id="instagram"
-  className="bg-[#f5f1eb] text-[#4a3527] py-32 md:py-40"
+  className="bg-[#f5f1eb] pt-32 pb-48"
 >
+
   <div className="max-w-6xl mx-auto px-8">
 
 
@@ -751,7 +781,7 @@ z-10
   Instagram
 </p>
 
-<h2 className="shippori-mincho text-5xl md:text-7xl text-center mb-12">
+<h2 className="shippori-mincho text-4xl md:text-5xl text-center mb-12">
   @kanmiema
 </h2>
 
@@ -789,15 +819,100 @@ z-10
     href="https://www.instagram.com/kanmiema/"
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-block border border-[#4a3527]/20 px-10 py-4 tracking-[0.15em] hover:bg-[#4a3527] hover:text-white transition duration-500"
-  >
-    VIEW INSTAGRAM
-  </a>
-
+  className="inline-block mt-12 mb-16 border px-10 py-4"
+>
+  VIEW INSTAGRAM
+</a>
 </div>
 
 
   </div>
+
+
+
+  {/* FOOTER */}
+
+<footer className="bg-[#4a3527] text-[#f5f1eb] py-24">
+
+  <div className="max-w-5xl mx-auto px-8 text-center">
+
+    <p className="text-xs tracking-[0.3em] uppercase opacity-60 mb-6">
+      Reservation
+    </p>
+
+    <h2 className="shippori text-2xl md:text-3xl mb-8">
+      ご来店をお待ちしております。
+    </h2>
+
+    <p className="leading-8 opacity-80 max-w-xl mx-auto mb-12">
+      一杯のお茶と一皿の甘味を通して、
+      心穏やかなひとときをお届けします。
+      <br />
+      ご予約・お問い合わせはお電話またはInstagramよりお願いいたします。
+    </p>
+
+    <a
+      href="tel:0292465199"
+      className="
+        block
+        text-2xl
+        md:text-3xl
+        tracking-[0.08em]
+        mb-10
+        hover:opacity-70
+        transition
+      "
+    >
+      029-246-5199
+    </a>
+
+    <a
+      href="https://www.instagram.com/kanmiema/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-block
+        border
+        border-white/20
+        px-8
+        py-4
+        tracking-[0.15em]
+        hover:bg-white
+        hover:text-[#4a3527]
+        transition-all
+        duration-500
+      "
+    >
+      INSTAGRAM
+    </a>
+
+    <div className="mt-20 pt-10 border-t border-white/10">
+
+      <p className="text-sm opacity-60">
+        〒310-0053
+      </p>
+
+      <p className="text-sm opacity-60 mt-1">
+        茨城県水戸市末広町3-2-35
+      </p>
+
+      <p className="text-sm opacity-60 mt-4">
+        OPEN 11:00 - 17:00
+      </p>
+
+      <p className="text-sm opacity-60 mt-1">
+        CLOSED 水曜日（不定休あり）
+      </p>
+
+      <p className="mt-10 text-xs tracking-[0.15em] opacity-40">
+        © KANMI EMA
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
 </section>
 
 
