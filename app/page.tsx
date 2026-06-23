@@ -840,7 +840,7 @@ z-10
       Reservation
     </p>
 
-    <h2 className="shippori text-2xl md:text-3xl mb-8">
+    <h2 className="shippori text-2xl md:text-2xl mb-8">
       ご来店をお待ちしております。
     </h2>
 
