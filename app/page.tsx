@@ -832,7 +832,7 @@ z-10
 
   {/* FOOTER */}
 
-<footer className="bg-[#4a3527] text-[#f5f1eb] py-24">
+<footer className="bg-[#653d23] text-[#f5f1eb] py-24">
 
   <div className="max-w-5xl mx-auto px-8 text-center">
 
