@@ -67,12 +67,12 @@ export default function Home() {
 
     <div className="h-16 flex items-center justify-between px-6">
 
-      <p className="text-white tracking-[0.15em] text-sm md:text-base">
+      <p className="text-[#4a3527] tracking-[0.15em] text-sm md:text-base">
         甘味ema
       </p>
 
       {/* PC MENU */}
-      <div className="hidden md:flex gap-10 text-[11px] uppercase text-white tracking-[0.3em]">
+      <div className="hidden md:flex gap-10 text-[11px] uppercase text-[#653d23] tracking-[0.3em]">
         <a href="#about">About</a>
         <a href="#menu">Menu</a>
         <a href="#gallery">Gallery</a>
@@ -85,9 +85,9 @@ export default function Home() {
         className="md:hidden flex flex-col gap-1"
         onClick={() => setMobileOpen(!mobileOpen)}
       >
-        <span className="w-5 h-[2px] bg-white"></span>
-        <span className="w-5 h-[2px] bg-white"></span>
-        <span className="w-5 h-[2px] bg-white"></span>
+        <span className="w-5 h-[2px] bg-[#4a3527]"></span>
+        <span className="w-5 h-[2px] bg-[#4a3527]"></span>
+        <span className="w-5 h-[2px] bg-[#4a3527]"></span>
       </button>
 
     </div>
@@ -96,7 +96,7 @@ export default function Home() {
 
   {/* MOBILE MENU */}
   {mobileOpen && (
-    <div className="fixed top-16 left-0 right-0 z-40 bg-white text-[#643c22]">
+    <div className="fixed top-16 left-0 right-0 z-40 bg-white/60 text-[#643c22]">
 
       <div className="flex flex-col items-center py-8 gap-6 uppercase tracking-[0.3em] text-sm">
 
